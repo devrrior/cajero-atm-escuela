@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/bootstrap.min.css" />
+    <title>Dashboard</title>
+  </head>
+  <style>
+    .btni {
+      height: 70px;
+    }
+  </style>
+  <body>
+    <div class="container" style="margin-top: 10%">
+      <h2 class="text-center mt-4 mb-4" id="welcome">
+        Bienvenido Fernando Guerrero
+      </h2>
+      <h5 class="text-center mb-4" id="numberAccount">Numero de cuenta</h5>
+      <div class="container row mx-auto d-flex justify-content-center">
+        <button
+          type="button"
+          data-bs-toggle="modal"
+          data-bs-target="#getCurrentBalance"
+          class="btn btn-primary col-5 mt-4 mx-2"
+          id="buttonCurrentBalance"
+        >
+          Consultar Saldo
+        </button>
+        <button
+          type="button"
+          data-bs-toggle="modal"
+          data-bs-target="#withdraw"
+          class="btni btn-primary col-5 mt-4 mx-2"
+        >
+          Retirar
+        </button>
+        <button
+          type="button"
+          data-bs-toggle="modal"
+          data-bs-target="#deposit"
+          class="btni btn-primary col-5 mt-4 mx-2"
+        >
+          Depositar
+        </button>
+        <button
+          type="button"
+          data-bs-toggle="modal"
+          data-bs-target="#transaction"
+          class="btni btn-primary col-5 mt-4 mx-2"
+        >
+          Transferir
+        </button>
+        <button
+          type="button"
+          class="btni btn-primary col-5 mt-4 mx-2"
+          id="buttonExit"
+        >
+          Salir
+        </button>
+      </div>
+    </div>
+
+    <!-- Current Balance -->
+    <div
+      class="modal fade"
+      id="getCurrentBalance"
+      tabindex="-1"
+      aria-labelledby="getCurrentBalanceLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="getCurrentBalanceLabel">
+              Saldo Actual
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body" id="currentBalance"></div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-primary"
+              data-bs-dismiss="modal"
+            >
+              Cerrar
+            </button>
+            <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Withdraw -->
+    <div
+      class="modal fade"
+      id="withdraw"
+      tabindex="-1"
+      aria-labelledby="depositLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="depositLabel">
+              Introduce saldo a retirar
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body" id="currentBalance">
+            <div class="form-group">
+              <label for="amount" class="form-label">Monto</label>
+              <input
+                type="number"
+                class="form-control"
+                id="withdrawAmount"
+                placeholder="100"
+              />
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Cerrar
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary"
+              id="buttonWithdraw"
+              data-bs-dismiss="modal"
+              data-bs-toggle="modal"
+              data-bs-target="#message"
+            >
+              Retirar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Message -->
+    <div
+      class="modal fade"
+      id="message"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Message</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body" id="messageModal">Operacion cancelada</div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-primary"
+              data-bs-dismiss="modal"
+            >
+              Cerrar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Deposit -->
+    <div
+      class="modal fade"
+      id="deposit"
+      tabindex="-1"
+      aria-labelledby="depositLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="depositLabel">
+              Introduce saldo a depositar
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div class="form-group">
+              <label for="amount" class="form-label">Monto</label>
+              <input
+                type="number"
+                class="form-control"
+                id="depositAmount"
+                placeholder="100"
+              />
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Cerrar
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary"
+              id="buttonDeposit"
+              data-bs-dismiss="modal"
+              data-bs-toggle="modal"
+              data-bs-target="#message"
+            >
+              Depositar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Transaction -->
+    <div
+      class="modal fade"
+      id="transaction"
+      tabindex="-1"
+      aria-labelledby="transactionLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="transactinoLabel">
+              Introduce los siguientes datos
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div class="form-group">
+              <label for="amount" class="form-label">Monto</label>
+              <input
+                type="number"
+                class="form-control"
+                id="transactionAmount"
+                placeholder="100"
+              />
+              <br />
+              <label for="numberAccount" class="form-label"
+                >Numero de cuenta</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                id="transactionNumberAccount"
+                placeholder="12345678901234567890"
+              />
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Cerrar
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary"
+              id="buttonTransaction"
+              data-bs-dismiss="modal"
+              data-bs-toggle="modal"
+              data-bs-target="#message"
+            >
+              Transferir
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="../js/dashboard.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+  </body>
+</html>
