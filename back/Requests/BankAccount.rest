@@ -1,0 +1,55 @@
+### Get Bank Account by id
+GET http://127.0.0.1:3000/api/v1/bankAccount/1 HTTP/1.1
+
+### Create Bank Account
+
+POST http://127.0.0.1:3000/api/v1/bankAccount/ HTTP/1.1
+Content-Type: application/json
+
+{
+	"typeAccount": "personal",
+	"nip": "1234",
+	"userId": 1
+}
+
+### Login Bank Account
+
+POST http://127.0.0.1:3000/api/v1/bankAccount/login HTTP/1.1
+Content-Type: application/json
+
+{
+	"numberAccount": "48604228176175995235",
+	"nip": "1234"
+}
+
+### Get Bank Account's current balance
+
+GET http://127.0.0.1:3000/api/v1/bankAccount/1/current-balance HTTP/1.1
+
+### Withdraw money from Bank Account
+
+PUT http://127.0.0.1:3000/api/v1/bankAccount/1/withdraw HTTP/1.1
+Content-Type: application/json
+
+{
+	"amount": 90
+}
+
+### Deposit money to Bank Account
+
+PUT http://127.0.0.1:3000/api/v1/bankAccount/1/deposit HTTP/1.1
+Content-Type: application/json
+
+{
+	"amount": 90
+}
+
+### Perform transfer money to Bank Account
+
+POST http://127.0.0.1:3000/api/v1/bankAccount/1/performTransaction HTTP/1.1
+Content-Type: application/json
+
+{
+	"destinationAccountNumberAccount": "79062090197890324657",
+	"amount": 20
+}
